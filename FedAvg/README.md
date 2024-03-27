@@ -1,6 +1,7 @@
 # FedAvg using FLamingo
 
-This is a PyTorch based FLamingo Federated Average (FedAvg) implementation. 
+This is a Federated Average (FedAvg) implementation based on FL framework FLamingo.  
+Check: [isaacveg/FLamingo](https://github.com/isaacveg/FLamingo) 
 
 ## Usage
 1. fillin the `config.yaml` file
@@ -8,3 +9,6 @@ This is a PyTorch based FLamingo Federated Average (FedAvg) implementation.
 ```bash
 python main.py
 ```
+
+## Bug report
+If you find any bug, please open an issue or contact me directly.
