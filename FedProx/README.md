@@ -1,6 +1,6 @@
-# FedMeta using FLamingo
+# FedProx using FLamingo
 
-This is a Federated Meta-learning (FedMeta) implementation based on FL framework FLamingo.  
+This is a Federated Proximal (FedProx) implementation based on FL framework FLamingo.  
 Check: [isaacveg/FLamingo](https://github.com/isaacveg/FLamingo) 
 
 ## Usage
