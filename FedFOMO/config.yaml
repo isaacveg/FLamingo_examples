@@ -1,0 +1,58 @@
+## Runner settings
+CREATE_SUBDIR_PER_RUN: True  # create a subdirectory for each run
+server_file: './server.py'  # server file
+client_file: './client.py'  # client file
+
+## File settings
+config: './config.yaml'  # use config file, will overwrite any other arguments
+data_dir: '../datasets/cifar10_nc30_distiid_blc1/'  # dataset directory
+work_dir: './runs/cifar10/'  # working directory
+
+## Training settings
+seed: 2024  # random seed
+batch_size: 32  # batch size
+test_batch_size: 32  # test batch size
+lr: 0.1  # learning rate
+lr_decay: 0.993
+weight_decay: 0.0001  # weight decay
+max_epochs: 500  # epoch
+dropout: 0.5  # dropout rate
+momentum:   
+local_epochs: 1  # local epochs
+
+## Simulated system heterogeneity settings
+USE_SIM_SYSHET: True  # use simulated system heterogeneity
+sys_het_list:             # randomly sample time within normal distribution with mean and variance
+  - computation: 10.0      # Long computation and communication time, low dynamic
+    communication: 10.0
+    dynamics: 2.0
+  - computation: 7.0      # Short computation and communication time, high dynamic
+    communication: 7.0
+    dynamics: 1.0
+  - computation: 5.0      # Medium computation and communication time, medium dynamic
+    communication: 5.0
+    dynamics: 1.5
+  - computation: 1.0      # Long computation and communication time, high dynamic
+    communication: 1.0
+    dynamics: 0.5
+
+## Federated learning settings
+num_clients: 40  # number of clients
+num_eval_clients: 0
+num_training_clients: 10  # number of training clients
+
+# custom settings
+# mnist:cnn, mlr, dnn; cifar10: mlr, cnn, dnn
+model_type: fedavgcnn  # model type
+dataset_type: cifar10  # dataset_type
+# FedFomo settings
+M: 5  # number of clients' models to send
+# Local optim
+local_iters: 60  # local iterations
+optim_steps: 2
+
+
+# Logging settings
+USE_TENSORBOARD: False  # use tensorboard
+log_path:      # log directory, set blank to use default
+verb: 1  # verbose, True or False
