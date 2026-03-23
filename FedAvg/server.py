@@ -17,23 +17,6 @@ class FedAvgServer(Server):
     """
     FedAvg Server, the original FLamingo Server
     """
-    def generate_global_test_set(self):
-        """
-        Generate a global test set.
-        """
-        if self.dataset_type == 'mnist':
-            self.test_set = MNIST(root='./data', train=False, download=True, transform=transforms.Compose([
-                transforms.ToTensor(),
-                transforms.Normalize((0.1307,), (0.3081,))
-            ]))
-        elif self.dataset_type == 'cifar10':
-            self.test_set = CIFAR10(root='./data', train=False, download=True, transform=transforms.Compose([
-                transforms.ToTensor(),
-                transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-            ]))
-        self.test_loader = DataLoader(
-            dataset=self.test_set, batch_size=self.args.batch_size, shuffle=False)
-        
     def test(self, model, test_loader):
         """
         Test the model.
